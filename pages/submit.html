@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Submit Site | NGB Checker</title>
+        <link rel="stylesheet" href="../css/global.css" />
+        <link rel="stylesheet" href="../css/submit.css" />
+      </head>
+      
+<body>
+
+  <header class="main-header">
+    <div class="container header-flex">
+      <img src="../images/ngb-logo.png" alt="NGB Logo" class="logo" />
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="bookmakers.html">Bookmakers</a></li>
+          <li><a href="bingos.html">Bingos</a></li>
+          <li><a href="operators.html">Operators</a></li>
+          <li><a href="submit.html">Submit Site</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <h2>Submit Your Site for Verification</h2>
+      <p>If you're a gambling operator and want to be listed on the NGB Checker, please complete the form below. We will review your submission and contact you via email.</p>
+    </section>
+
+    <section class="form-section">
+      <form id="submitForm">
+        <label for="company">Company Name</label>
+        <input type="text" id="company" name="company" required />
+
+        <label for="website">Website URL</label>
+        <input type="url" id="website" name="website" required />
+
+        <label for="license">License Number</label>
+        <input type="text" id="license" name="license" required />
+
+        <label for="contact">Contact Email</label>
+        <input type="email" id="contact" name="contact" required />
+
+        <button type="submit">Submit Request</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 National Gambling Board of South Africa. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("submitForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const company = document.getElementById("company").value.trim();
+      const website = document.getElementById("website").value.trim();
+      const license = document.getElementById("license").value.trim();
+      const contact = document.getElementById("contact").value.trim();
+
+      const subject = encodeURIComponent("New Verification Submission");
+      const body = encodeURIComponent(
+        `Company Name: ${company}\nWebsite: ${website}\nLicense Number: ${license}\nContact Email: ${contact}`
+      );
+
+      const mailto = `mailto:amulovhedzi@ngb.org.za?subject=${subject}&body=${body}`;
+      window.location.href = mailto;
+    });
+  </script>
+
+</body>
+</html>

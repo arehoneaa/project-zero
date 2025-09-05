@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verified Bingos | NGB Checker</title>
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/bingos.css" />
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="container header-flex">
+      <img src="../images/ngb-logo.png" alt="NGB Logo" class="logo" />
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="bookmakers.html">Bookmakers</a></li>
+          <li><a href="bingos.html">Bingos</a></li>
+          <li><a href="operators.html">Operators</a></li>
+          <li><a href="submit.html">Submit Site</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <h2>Verified Bingo Operators</h2>
+      <p>These are legally registered and verified bingo operators in South Africa.</p>
+    </section>
+
+    <section class="search-filter">
+      <input type="text" id="searchInput" placeholder="Search by name or license..." />
+      <select id="provinceFilter">
+        <option value="">All Provinces</option>
+        <option value="Eastern Cape">Eastern Cape</option>
+        <option value="Free State">Free State</option>
+        <option value="Gauteng">Gauteng</option>
+        <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+        <option value="Limpopo">Limpopo</option>
+        <option value="Mpumalanga">Mpumalanga</option>
+        <option value="North West">North West</option>
+        <option value="Northern Cape">Northern Cape</option>
+        <option value="Western Cape">Western Cape</option>
+      </select>
+      
+    </section>
+
+    <section>
+      <table class="listing-table" id="bingoTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>License Number</th>
+            <th>Province</th>
+            <th>Website</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Lucky Star Bingo</td>
+                <td>LP7771</td>
+                <td>Limpopo</td>
+                <td><a href="https://luckystarbingo.co.za" target="_blank">Visit</a></td>
+              </tr>
+              <tr>
+                <td>Free State Bingo</td>
+                <td>FS2002</td>
+                <td>Free State</td>
+                <td><a href="https://fsbingo.co.za" target="_blank">Visit</a></td>
+              </tr>
+              <tr>
+                <td>Mpumalanga Dabbers</td>
+                <td>MP3344</td>
+                <td>Mpumalanga</td>
+                <td><a href="https://mpdabbers.co.za" target="_blank">Visit</a></td>
+              </tr>
+              <tr>
+                <td>North West Bingo Club</td>
+                <td>NW8855</td>
+                <td>North West</td>
+                <td><a href="https://nwbingo.co.za" target="_blank">Visit</a></td>
+              </tr>
+              <tr>
+                <td>Diamond Bingo</td>
+                <td>NC6677</td>
+                <td>Northern Cape</td>
+                <td><a href="https://diamondbingo.co.za" target="_blank">Visit</a></td>
+              </tr>
+              <tr>
+                <td>Cape Bingo Zone</td>
+                <td>WC9911</td>
+                <td>Western Cape</td>
+                <td><a href="https://capebingo.co.za" target="_blank">Visit</a></td>
+              </tr>
+              <tr>
+                <td>Gauteng Mega Bingo</td>
+                <td>GP5050</td>
+                <td>Gauteng</td>
+                <td><a href="https://gpmegabingo.co.za" target="_blank">Visit</a></td>
+              </tr>
+              <tr>
+                <td>Zululand Bingo</td>
+                <td>KZN3210</td>
+                <td>KwaZulu-Natal</td>
+                <td><a href="https://zulubingo.co.za" target="_blank">Visit</a></td>
+              </tr>
+              <tr>
+                <td>Eastern Cape Bingo</td>
+                <td>EC4455</td>
+                <td>Eastern Cape</td>
+                <td><a href="https://ecbingo.co.za" target="_blank">Visit</a></td>
+              </tr>
+              
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 National Gambling Board of South Africa. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const provinceFilter = document.getElementById("provinceFilter");
+    const table = document.getElementById("bingoTable").getElementsByTagName("tbody")[0];
+
+    function filterTable() {
+      const searchValue = searchInput.value.toLowerCase();
+      const provinceValue = provinceFilter.value;
+
+      Array.from(table.rows).forEach(row => {
+        const name = row.cells[0].textContent.toLowerCase();
+        const license = row.cells[1].textContent.toLowerCase();
+        const province = row.cells[2].textContent;
+
+        const matchesSearch = name.includes(searchValue) || license.includes(searchValue);
+        const matchesProvince = provinceValue === "" || province === provinceValue;
+
+        row.style.display = (matchesSearch && matchesProvince) ? "" : "none";
+      });
+    }
+
+    searchInput.addEventListener("input", filterTable);
+    provinceFilter.addEventListener("change", filterTable);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Verified Bookmakers | NGB Checker</title>
+        <link rel="stylesheet" href="../css/global.css" />
+        <link rel="stylesheet" href="../css/bookmakers.css" />
+      </head>
+      
+<body>
+
+  <header class="main-header">
+    <div class="container header-flex">
+      <img src="../images/ngb-logo.png" alt="NGB Logo" class="logo" />
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="bookmakers.html">Bookmakers</a></li>
+          <li><a href="bingos.html">Bingos</a></li>
+          <li><a href="operators.html">Operators</a></li>
+          <li><a href="submit.html">Submit Site</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <h2>Verified Bookmakers</h2>
+      <p>Below is a list of verified online bookmakers operating legally in South Africa.</p>
+    </section>
+
+    <section class="search-filter">
+      <input type="text" id="searchInput" placeholder="Search by name or license..." />
+      <select id="provinceFilter">
+        <option value="">All Provinces</option>
+        <option value="Eastern Cape">Eastern Cape</option>
+        <option value="Free State">Free State</option>
+        <option value="Gauteng">Gauteng</option>
+        <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+        <option value="Limpopo">Limpopo</option>
+        <option value="Mpumalanga">Mpumalanga</option>
+        <option value="North West">North West</option>
+        <option value="Northern Cape">Northern Cape</option>
+        <option value="Western Cape">Western Cape</option>
+      </select>
+    </section>
+
+    <section>
+      <table class="listing-table" id="bookmakerTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>License Number</th>
+            <th>Province</th>
+            <th>Website</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- SAMPLE ROWS -->
+          <tr>
+            <td>GoldBet SA</td>
+            <td>LP1001</td>
+            <td>Limpopo</td>
+            <td><a href="https://goldbetsa.co.za" target="_blank">Visit</a></td>
+          </tr>
+          <tr>
+            <td>Free State Sports</td>
+            <td>FS5678</td>
+            <td>Free State</td>
+            <td><a href="https://freestatesports.co.za" target="_blank">Visit</a></td>
+          </tr>
+          <tr>
+            <td>Mpumalanga MaxBet</td>
+            <td>MP2345</td>
+            <td>Mpumalanga</td>
+            <td><a href="https://mpmaxbet.co.za" target="_blank">Visit</a></td>
+          </tr>
+          <tr>
+            <td>NorthWest Odds</td>
+            <td>NW9087</td>
+            <td>North West</td>
+            <td><a href="https://nwodds.co.za" target="_blank">Visit</a></td>
+          </tr>
+          <tr>
+            <td>Northern Cape Punters</td>
+            <td>NC3091</td>
+            <td>Northern Cape</td>
+            <td><a href="https://ncpunters.co.za" target="_blank">Visit</a></td>
+          </tr>
+          <tr>
+            <td>Western Bet</td>
+            <td>WC0022</td>
+            <td>Western Cape</td>
+            <td><a href="https://westernbet.co.za" target="_blank">Visit</a></td>
+          </tr>
+          <tr>
+            <td>Gauteng Goals</td>
+            <td>GP9999</td>
+            <td>Gauteng</td>
+            <td><a href="https://gpgoals.co.za" target="_blank">Visit</a></td>
+          </tr>
+          <tr>
+            <td>KZN KingsBet</td>
+            <td>KZN3030</td>
+            <td>KwaZulu-Natal</td>
+            <td><a href="https://kznkings.co.za" target="_blank">Visit</a></td>
+          </tr>
+          <tr>
+            <td>Eastern Bets</td>
+            <td>EC1122</td>
+            <td>Eastern Cape</td>
+            <td><a href="https://easternbets.co.za" target="_blank">Visit</a></td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 National Gambling Board of South Africa. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const provinceFilter = document.getElementById("provinceFilter");
+    const table = document.getElementById("bookmakerTable").getElementsByTagName("tbody")[0];
+
+    function filterTable() {
+      const searchValue = searchInput.value.toLowerCase();
+      const provinceValue = provinceFilter.value;
+
+      Array.from(table.rows).forEach(row => {
+        const name = row.cells[0].textContent.toLowerCase();
+        const license = row.cells[1].textContent.toLowerCase();
+        const province = row.cells[2].textContent;
+
+        const matchesSearch = name.includes(searchValue) || license.includes(searchValue);
+        const matchesProvince = provinceValue === "" || province === provinceValue;
+
+        row.style.display = (matchesSearch && matchesProvince) ? "" : "none";
+      });
+    }
+
+    searchInput.addEventListener("input", filterTable);
+    provinceFilter.addEventListener("change", filterTable);
+  </script>
+
+</body>
+</html>

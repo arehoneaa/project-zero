@@ -1,0 +1,248 @@
+/* ----------------------------
+   GLOBAL STYLES (fonts, reset, layout)
+---------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  /* ----------------------------
+     HEADER & NAVIGATION
+  ---------------------------- */
+  .main-header {
+    background: linear-gradient(to right, #d32f2f, #f57c00);
+    color: white;
+    padding: 15px 0;
+  }
+  
+  .header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 140px;
+    height: auto;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  nav ul li {
+    margin: 0 15px;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  nav ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  /* ----------------------------
+     HOMEPAGE - HERO SECTION
+  ---------------------------- */
+  .hero-banner {
+    background: url("../images/banner.jpg") no-repeat center center/cover;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+  }
+  
+  .hero-banner::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .btn-primary {
+    background-color: #d32f2f;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .btn-primary:hover {
+    background-color: #b71c1c;
+  }
+  
+  /* ----------------------------
+     HOMEPAGE - SEARCH FORM
+  ---------------------------- */
+  .search-section {
+    display: flex;
+    justify-content: center;
+  }
+  
+  input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+  }
+  
+  button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #f57c00;
+    border: none;
+    color: white;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #d32f2f;
+  }
+  
+  /* ----------------------------
+     SUBMIT & CONTACT FORMS
+  ---------------------------- */
+  .form-section form {
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .form-section label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .form-section input,
+  textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  
+  .form-section button {
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .form-section button:hover {
+    background-color: #b71c1c;
+  }
+  
+  /* ----------------------------
+     BOOKMAKERS TABLE & FILTER
+  ---------------------------- */
+  .search-filter {
+    display: flex;
+    justify-content: space-between;
+    max-width: 600px;
+    margin: 20px auto;
+    gap: 10px;
+  }
+  
+  .search-filter input,
+  .search-filter select {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .listing-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .listing-table th, .listing-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .listing-table th {
+    background-color: #f57c00;
+    color: white;
+  }
+  
+  .listing-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* ----------------------------
+     TERMS OF USE
+  ---------------------------- */
+  .terms-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+  
+  .terms-section ol {
+    padding-left: 20px;
+  }
+  
+  .terms-section li {
+    margin-bottom: 15px;
+    line-height: 1.6;
+  }
+  
+  /* ----------------------------
+     FOOTER
+  ---------------------------- */
+  footer {
+    background-color: #f2f2f2;
+    color: #333;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+  }
+  
